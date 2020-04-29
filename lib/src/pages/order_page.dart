@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:home_cook/src/pages/signin_page.dart';
 
 // Custom widgets
 
@@ -62,7 +63,7 @@ class _OrderPageState extends State<OrderPage>{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text("Cart Total", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                    Text("23.0", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
+                    Text("\u20AC 23.0", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
                   ],
                 ),
                 SizedBox(height: 10.0,),
@@ -70,7 +71,7 @@ class _OrderPageState extends State<OrderPage>{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text("Discount", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                    Text("3,0", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
+                    Text("\u20AC 3,0", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
                   ],
                 ),
                 SizedBox(height: 10.0,),
@@ -78,7 +79,7 @@ class _OrderPageState extends State<OrderPage>{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text("Tax", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                    Text("0.5", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
+                    Text("\u20AC 0.5", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
                   ],
                 ),
                 Divider(height: 40.0, color: Color(0xFFD3D3D3),),
@@ -87,26 +88,31 @@ class _OrderPageState extends State<OrderPage>{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text("Sub total", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                    Text("26.5", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
+                    Text("\u20AC 26.5", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
                   ],
                 ),
                 SizedBox(height: 20.0,),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 50.0,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.circular(30.0)
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Proceed to Checkout",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.0
-                      ),
-                      ),
+                GestureDetector(
+                  onTap: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => SignInPage()));
+                  },
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 50.0,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).primaryColor,
+                      borderRadius: BorderRadius.circular(30.0)
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Proceed to Checkout",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0
+                        ),
+                        ),
+                    ),
                   ),
                 )
               ],
