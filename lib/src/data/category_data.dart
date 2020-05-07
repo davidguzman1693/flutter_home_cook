@@ -4,7 +4,7 @@ final categories = [
   Category(
     numberOfItems: 43,
     imagePath: "assets/images/burger.png",
-    categoryName: "Burguer"
+    categoryName: "Burger"
   ),
   
   Category(
@@ -16,6 +16,6 @@ final categories = [
   Category(
     numberOfItems: 23,
     imagePath: "assets/images/coffee-cup.png",
-    categoryName: "Coffe"
+    categoryName: "Coffee"
   ),
 ];

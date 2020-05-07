@@ -18,18 +18,18 @@ class FoodModel extends Model{
 
   void fetchFood(){
     //Change it with local ip
-    http.get("http://192.168.1.147/flutter_food_app/api/foods/getFoods.php").
+    http.get("http://192.168.1.5/api/foods/getFoods.php").
       then((http.Response response){
-        //print("Fetching data: ${response.body}");
+        print("Fetching data: ${response.body}");
         final List fetchedData = json.decode(response.body);
         final List<Food> fetchedFoodItems = [];
         fetchedData.forEach((data){
           Food food = Food(
             id: data["id"],
-            category: data["category"],
+            category: data["category_id"],
             discount: double.parse(data["discount"]),
-            imagePath: data["imagePath"],
-            name: data["name"],
+            imagePath: data["image_path"],
+            name: data["title"],
             price: double.parse(data["price"])
           );
 
