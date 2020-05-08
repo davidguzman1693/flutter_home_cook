@@ -18,7 +18,7 @@ class FoodModel extends Model{
 
   void fetchFood(){
     //Change it with local ip
-    http.get("http://192.168.1.5/api/foods/getFoods.php").
+    http.get("http://192.168.1.3/api/foods/getFoods.php").
       then((http.Response response){
         print("Fetching data: ${response.body}");
         final List fetchedData = json.decode(response.body);

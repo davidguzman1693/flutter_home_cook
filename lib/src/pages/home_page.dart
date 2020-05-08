@@ -1,72 +1,90 @@
 import 'package:flutter/material.dart';
-import 'package:home_cook/src/scoped-model/food-model.dart';
-import 'package:home_cook/src/widgets/food_category.dart';
+
+
+import 'package:home_cook/src/scoped-model/main_model.dart';
+import 'package:home_cook/src/widgets/bought_foods.dart';
+import 'package:home_cook/src/widgets/search_field.dart';
+import 'package:scoped_model/scoped_model.dart';
 import '../widgets/home_top_info.dart';
-import '../widgets/search_field.dart';
-import '../widgets/bought_foods.dart';
+import '../widgets/food_category.dart';
 
 
+
+// Model
 import '../models/food_model.dart';
 
-class HomePage extends StatefulWidget{
-  final FoodModel foodModel;
+class HomePage extends StatefulWidget {
+  // final FoodModel foodModel;
 
-  HomePage(this.foodModel);
-    @override
-    _HomePageState createState() => _HomePageState();
+  // HomePage(this.foodModel);
+  @override
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>{
-  
+class _HomePageState extends State<HomePage> {
+  // List<Food> _foods = foods;
+
   @override
-  void initState(){
-    widget.foodModel.fetchFood();
+  void initState() {
+    // widget.foodModel.fetchFoods();
     super.initState();
   }
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView(
-            padding: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
+      backgroundColor: Colors.white,
+      body: ListView(
+        padding: EdgeInsets.only(left: 20.0, right: 20.0),
+        children: <Widget>[
+          HomeTopInfo(),
+          FoodCategory(),
+          SizedBox(
+            height: 20.0,
+          ),
+          SearchField(),
+          SizedBox(
+            height: 20.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              HomeTopInfo(),
-              FoodCategory(),
-              SizedBox(height: 20.0,),
-              SearchField(),
-              SizedBox(height: 20.0,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    "Frequently bought Foods",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold
-                    ),),
-                  GestureDetector(
-                      onTap: (){},
-                      child: Text(
-                      "View All",
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.orangeAccent
-                      ),
-                    ),
-                  )
-                ],
+              Text(
+                "Frequently Bought Foods",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              SizedBox(height: 20.0,),
-              Column(
-                children: widget.foodModel.foods.map(_buildFoodItems).toList(),
+              GestureDetector(
+                onTap: () {
+                  print("I' pressed");
+                },
+                child: Text(
+                  "View all",
+                  style: TextStyle(
+                    color: Colors.orangeAccent,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0,
+                  ),
+                ),
               ),
             ],
-        ),
+          ),
+          SizedBox(height: 20.0),
+          ScopedModelDescendant<MainModel>(
+            builder: (BuildContext context, Widget child, MainModel model){
+              return Column(
+                children: model.foods.map(_buildFoodItems).toList(),
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 
-  Widget _buildFoodItems(Food food){
+  Widget _buildFoodItems(Food food) {
     return Container(
       margin: EdgeInsets.only(bottom: 20.0),
       child: BoughtFoods(
@@ -80,5 +98,4 @@ class _HomePageState extends State<HomePage>{
       ),
     );
   }
-
 }
