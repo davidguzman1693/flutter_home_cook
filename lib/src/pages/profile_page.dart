@@ -48,7 +48,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ],
                       image: DecorationImage(
                         image: AssetImage(
-                          "assets/images/breakfast.jpeg",
+                          "assets/images/beer.png",
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -61,7 +61,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        "Richmond Blankson",
+                        "Francesco Totti",
                         style: TextStyle(
                           fontSize: 16.0,
                         ),
@@ -70,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         height: 10.0,
                       ),
                       Text(
-                        "+233247656959",
+                        "+39 3247656",
                         style: TextStyle(color: Colors.grey),
                       ),
                       SizedBox(

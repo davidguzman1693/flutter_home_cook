@@ -6,16 +6,28 @@ final categories = [
     imagePath: "assets/images/burger.png",
     categoryName: "Burger"
   ),
-  
+
   Category(
     numberOfItems: 23,
     imagePath: "assets/images/pizza.png",
     categoryName: "Pizza"
   ),
 
-  Category(
+    Category(
     numberOfItems: 23,
     imagePath: "assets/images/coffee-cup.png",
-    categoryName: "Coffee"
+    categoryName: "Coffe Cup"
+  ),
+
+    Category(
+    numberOfItems: 90,
+    imagePath: "assets/images/beer.png",
+    categoryName: "Beer"
+  ),
+
+    Category(
+    numberOfItems: 55,
+    imagePath: "assets/images/cheeseburger.png",
+    categoryName: "Cheese Burger"
   ),
 ];

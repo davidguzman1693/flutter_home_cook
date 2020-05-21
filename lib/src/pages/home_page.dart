@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:home_cook/src/pages/food_details_page.dart';
 
 import 'package:home_cook/src/scoped-model/main_model.dart';
 import 'package:home_cook/src/widgets/bought_foods.dart';
-import 'package:home_cook/src/widgets/search_field.dart';
 import 'package:scoped_model/scoped_model.dart';
 import '../widgets/home_top_info.dart';
 import '../widgets/food_category.dart';
-
+import '../widgets/search_field.dart';
 
 
 // Model
@@ -85,17 +84,27 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildFoodItems(Food food) {
-    return Container(
+    return GestureDetector(
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (BuildContext context) => FoodDetailsPage(
+            food: food
+          ),
+        ));
+      },
+      child: Container(
       margin: EdgeInsets.only(bottom: 20.0),
-      child: BoughtFoods(
+      child: BoughtFood(
         id: food.id,
         name: food.name,
-        imagePath: food.imagePath,
+        //imagePath: food.imagePath,
+        imagePath: 'assets/images/lunch.jpeg',
         category: food.category,
         discount: food.discount,
         price: food.price,
         ratings: food.ratings,
       ),
+    ),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class BoughtFoods extends StatefulWidget{
-
+class BoughtFood extends StatefulWidget {
   final String id;
   final String name;
   final String imagePath;
@@ -10,43 +9,51 @@ class BoughtFoods extends StatefulWidget{
   final double discount;
   final double ratings;
 
-  BoughtFoods({this.id, this.name, this.imagePath, this.category, this.price, this.discount, this.ratings});
+  BoughtFood(
+      {this.id,
+      this.name,
+      this.imagePath,
+      this.category,
+      this.price,
+      this.discount,
+      this.ratings});
 
   @override
-  _BoughtFoodState createState() {
-    // TODO: implement createState
-    return _BoughtFoodState();
-  }
+  _BoughtFoodState createState() => _BoughtFoodState();
 }
 
-class _BoughtFoodState extends State<BoughtFoods>{
+class _BoughtFoodState extends State<BoughtFood> {
+  var cardText = TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold);
+
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(10.0),
+      borderRadius: BorderRadius.all(
+        Radius.circular(10.0),
+      ),
       child: Stack(
         children: <Widget>[
           Container(
-            height: 200.0,
-            width: 380.0,
-            child: Image.asset(widget.imagePath, fit: BoxFit.cover,),
+            height: 230.0,
+            width: 340.0,
+            child: Image(
+              image: AssetImage(
+                widget.imagePath
+              ),
+              fit: BoxFit.cover,
+            ),
           ),
           Positioned(
             left: 0.0,
             bottom: 0.0,
-
+            width: 340.0,
+            height: 60.0,
             child: Container(
-              height: 60.0,
-              width: 340.0,
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.black, Colors.black12
-                  ],
-                  begin: Alignment.bottomCenter,
-                  end: Alignment.topCenter
-                )
-              ),
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                      colors: [Colors.black, Colors.black12])),
             ),
           ),
           Positioned(
@@ -62,48 +69,62 @@ class _BoughtFoodState extends State<BoughtFoods>{
                     Text(
                       widget.name,
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold
-                      ),
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ),
                     Row(
                       children: <Widget>[
-                        Icon(Icons.star, color: Theme.of(context).primaryColor, size: 16.0,),
-                        Icon(Icons.star, color: Theme.of(context).primaryColor, size: 16.0,),
-                        Icon(Icons.star, color: Theme.of(context).primaryColor, size: 16.0,),
-                        Icon(Icons.star, color: Theme.of(context).primaryColor, size: 16.0,),
-                        Icon(Icons.star, color: Theme.of(context).primaryColor, size: 16.0,),
-                        SizedBox(width: 22.0,),
+                        Icon(
+                          Icons.star,
+                          color: Theme.of(context).primaryColor,
+                          size: 16.0,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Theme.of(context).primaryColor,
+                          size: 16.0,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Theme.of(context).primaryColor,
+                          size: 16.0,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Theme.of(context).primaryColor,
+                          size: 16.0,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Theme.of(context).primaryColor,
+                          size: 16.0,
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
                         Text(
-                          "("+widget.ratings.toString()+"Reviews)",
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16.0,
-                          ),
-                        )
+                          "(" + widget.ratings.toString() + " Reviews)",
+                          style: TextStyle(color: Colors.grey),
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: <Widget>[
                     Text(
                       widget.price.toString(),
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.orangeAccent,
-                        fontSize: 18.0
-                      ),
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.orangeAccent),
                     ),
-                    Text(
-                      "Min. order",
-                      style: TextStyle(
-                        color: Colors.grey
-                      ),
-                    )
+                    Text("Min order",
+                        style: TextStyle(color: Colors.grey))
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -111,5 +132,4 @@ class _BoughtFoodState extends State<BoughtFoods>{
       ),
     );
   }
-
 }

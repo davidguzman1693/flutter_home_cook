@@ -89,7 +89,7 @@ class _AddFoodItemState extends State<AddFoodItem> {
                           (BuildContext context, Widget child, MainModel model) {
                         return GestureDetector(
                           onTap: () {
-                           // onSubmit(model.addFood, model.updateFood); line to update food
+                            onSubmit(model.addFood, model.updateFood);
                             if (model.isLoading) {
                               // show loading progess indicator
                               showLoadingIndicator(context, widget.food != null ? "Updating food..." : "Adding food...");
@@ -143,7 +143,7 @@ class _AddFoodItemState extends State<AddFoodItem> {
           _scaffoldStateKey.currentState.showSnackBar(snackBar);
         }
       } else if (widget.food == null) {
-        // I want to add new Item
+        // I wnat to add new Item
         final Food food = Food(
           name: title,
           category: category,

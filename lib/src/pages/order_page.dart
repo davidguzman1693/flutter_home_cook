@@ -1,36 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:home_cook/src/pages/signin_page.dart';
-
-// Custom widgets
-
 import '../widgets/order_card.dart';
 
-class OrderPage extends StatefulWidget{
-
+class OrderPage extends StatefulWidget {
   @override
   _OrderPageState createState() => _OrderPageState();
 }
 
-class _OrderPageState extends State<OrderPage>{
+class _OrderPageState extends State<OrderPage> {
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text("Your food chart", style: TextStyle(color: Colors.black),),
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          elevation: 0.0,
-        ),
-        body: ListView(
+      backgroundColor: Colors.white,
+      body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 10.0),
         scrollDirection: Axis.vertical,
         children: <Widget>[
-          OrderCard(),
-          OrderCard(),
-          OrderCard(),
-          OrderCard(),
-          OrderCard(),
-          OrderCard(),
           OrderCard(),
           OrderCard(),
         ],
@@ -39,84 +24,140 @@ class _OrderPageState extends State<OrderPage>{
     );
   }
 
-  Widget _buildTotalContainer(){
+  Widget _buildTotalContainer() {
     return Container(
-            height: 220.0,
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-            margin: EdgeInsets.only(top: 20.0),
-            child: Column(
-              children: <Widget>[
-                /*
-                ListTile(
-                  leading: Text("Cart Total", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                  trailing: Text("23.0", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                ),
-                ListTile(
-                  leading: Text("Cart Total", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                  trailing: Text("23.0", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                ),
-                ListTile(
-                  leading: Text("Cart Total", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                  trailing: Text("23.0", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                )*/
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text("Cart Total", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                    Text("\u20AC 23.0", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                  ],
-                ),
-                SizedBox(height: 10.0,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text("Discount", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                    Text("\u20AC 3,0", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                  ],
-                ),
-                SizedBox(height: 10.0,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text("Tax", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                    Text("\u20AC 0.5", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                  ],
-                ),
-                Divider(height: 40.0, color: Color(0xFFD3D3D3),),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text("Sub total", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.grey),),
-                    Text("\u20AC 26.5", style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),),
-                  ],
-                ),
-                SizedBox(height: 20.0,),
-                GestureDetector(
-                  onTap: (){
-                    Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => SignInPage()));
-                  },
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 50.0,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
-                      borderRadius: BorderRadius.circular(30.0)
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Proceed to Checkout",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0
-                        ),
-                        ),
-                    ),
+      height: 220.0,
+      padding: EdgeInsets.only(
+        left: 10.0,
+        right: 10.0,
+      ),
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                "Subtotal",
+                style: TextStyle(
+                    color: Color(0xFF9BA7C6),
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "23.0",
+                style: TextStyle(
+                    color: Color(0xFF6C6D6D),
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                "Discount",
+                style: TextStyle(
+                    color: Color(0xFF9BA7C6),
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "10.0",
+                style: TextStyle(
+                    color: Color(0xFF6C6D6D),
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                "Tax",
+                style: TextStyle(
+                    color: Color(0xFF9BA7C6),
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "0.5",
+                style: TextStyle(
+                    color: Color(0xFF6C6D6D),
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Divider(
+            height: 2.0,
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Text(
+                "Cart Total",
+                style: TextStyle(
+                    color: Color(0xFF9BA7C6),
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "26.5",
+                style: TextStyle(
+                    color: Color(0xFF6C6D6D),
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => SignInPage()));
+            },
+            child: Container(
+              height: 50.0,
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.circular(35.0),
+              ),
+              child: Center(
+                child: Text(
+                  "Proceed To Checkout",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
                   ),
-                )
-              ],
+                ),
+              ),
             ),
-          );
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+        ],
+      ),
+    );
   }
 }

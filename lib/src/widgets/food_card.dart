@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FoodCard extends StatelessWidget{
+
   final String categoryName;
   final String imagePath;
   final int numberOfItems;
@@ -26,7 +27,7 @@ class FoodCard extends StatelessWidget{
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(categoryName, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),),
-                  Text("$numberOfItems kinds")
+                  Text("$numberOfItems Kinds",)
                 ],
               ),
             ],
