@@ -1,4 +1,10 @@
-#Thu May 21 16:18:23 CEST 2020
-base.0=/home/davidguzman/Documents/FlutterProjects/home_cook/home_cook/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Sat May 30 16:26:07 CEST 2020
+path.2=classes3.dex
+path.1=classes2.dex
 path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
 renamed.0=classes.dex
+base.2=C\:\\Users\\david\\Documents\\FlutterProjects\\food_delivery\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
+base.1=C\:\\Users\\david\\Documents\\FlutterProjects\\food_delivery\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
+base.0=C\:\\Users\\david\\Documents\\FlutterProjects\\food_delivery\\build\\app\\intermediates\\transforms\\dexMerger\\debug\\0
